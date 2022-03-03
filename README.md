@@ -21,8 +21,7 @@ then go to your local server
 # To Do:
 - [x] object detection in images (jpg, jpeg, png)
 - [x] object detection in videos (mp4, avi, mkv)
-- [ ] display outpu video in webapp
 - [ ] add progress bar to webapp
-- [x] static/tmp folder creation in case it doesn't exists
 - [ ] add Dockerfile
 - [ ] create dropdown in webapp that allows choosing different models
+- [ ] deploy to cloud
