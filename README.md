@@ -6,11 +6,11 @@ YOLOv5 🚀 is a family of object detection architectures and models pretrained 
 
 # Steps
 ```bash
-$ git clone https://github.com/JulianLopezB/ObjectDetectionAPI.git
-$ cd ObjectDetectionAPI
 $ pip install virtualenv
 $ virtualenv objectdetectionapi
 $ source objectdetectionapi/bin/activate
+$ git clone https://github.com/JulianLopezB/ObjectDetectionAPI.git
+$ cd ObjectDetectionAPI
 $ pip install -r requirements.txt
 $ python webapp.py
 ```

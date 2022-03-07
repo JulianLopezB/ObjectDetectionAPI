@@ -96,8 +96,8 @@ def generate_frames(cap):
 def get_video_predictions(file, frames_path):
 
     filename = 'tmp.mp4'
-    file.save(os.path.join(uploads_dir, secure_filename(filename)))
     vid_input = os.path.join(uploads_dir, secure_filename(filename))
+    file.save(vid_input)
     cap=cv2.VideoCapture(cv2.CAP_FFMPEG)
     cap.open(str(vid_input))
     
