@@ -2,7 +2,7 @@
 Simple app to upload an image via a web form 
 and view the inference results on the image in the browser.
 """
-import argparse
+#import argparse
 import io
 import os
 import subprocess
@@ -13,6 +13,17 @@ import cv2
 import torch
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
+
+
+# model = torch.hub.load(
+#    "ultralytics/yolov5", "yolov5s", pretrained=True, force_reload=True, autoshape=True
+# )  # force_reload = recache latest code
+# model.eval()
+
+model = torch.hub.load('yolov5', 'custom',  path='models/yolov5s.pt',  source='local', force_reload=True)
+
+model.eval()
+
 
 app = Flask(__name__)
 
@@ -141,12 +152,9 @@ def render_video(pathOut_Frames, videoOut_file):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Flask app exposing yolov5 models")
-    parser.add_argument("--port", default=5000, type=int, help="port number")
-    args = parser.parse_args()
+    #parser = argparse.ArgumentParser(description="Flask app exposing yolov5 models")
+    #parser.add_argument("--port", default=5000, type=int, help="port number")
+    #args = parser.parse_args()
 
-    model = torch.hub.load(
-       "ultralytics/yolov5", "yolov5s", pretrained=True, force_reload=True, autoshape=True
-    )  # force_reload = recache latest code
-    model.eval()
-    app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
+    #app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
