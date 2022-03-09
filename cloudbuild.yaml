@@ -1,0 +1,18 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/deeplogo/objectdetection', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/deeplogo/objectdetection']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'objectdetectionapi', 
+        '--image', 'gcr.io/deeplogo/objectdetection', 
+        '--region', 'us-east1', 
+        '--cpu', '4',
+        '--memory', '16Gi']
+images:
+- gcr.io/deeplogo/objectdetection
+timeout: '3600s'

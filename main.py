@@ -15,10 +15,6 @@ from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
 
 
-# model = torch.hub.load(
-#    "ultralytics/yolov5", "yolov5s", pretrained=True, force_reload=True, autoshape=True
-# )  # force_reload = recache latest code
-# model.eval()
 
 model = torch.hub.load('yolov5', 'custom',  path='models/yolov5s.pt',  source='local', force_reload=True)
 

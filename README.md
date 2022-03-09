@@ -5,18 +5,25 @@ YOLOv5 🚀 is a family of object detection architectures and models pretrained 
 ![](static/example.jpg)
 
 # Steps
+## Deploy Locally
 ```bash
 $ pip install virtualenv
 $ virtualenv objectdetectionapi
 $ source objectdetectionapi/bin/activate
 $ git clone https://github.com/JulianLopezB/ObjectDetectionAPI.git
 $ cd ObjectDetectionAPI
+$ git clone https://github.com/ultralytics/yolov5.git
 $ pip install -r requirements.txt
-$ python webapp.py
+$ python main.py
 ```
 
 then go to your local server
 
+## Deploy on Cloud
+### Cloud Run (see [here](https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service#deploy))
+```bash
+$ gcloud builds submit
+```
 
 # To Do:
 - [x] object detection in images (jpg, jpeg, png)
